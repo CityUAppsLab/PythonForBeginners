@@ -1,6 +1,5 @@
 def drawBoard(board):
     # This function prints out the board that it was passed.
-
     # "board" is a list of 10 strings representing the board (ignore index 0)
     print('   |   |')
     print(' ' + board[7] + ' | ' + board[8] + ' | ' + board[9])
@@ -14,94 +13,67 @@ def drawBoard(board):
     print(' ' + board[1] + ' | ' + board[2] + ' | ' + board[3])
     print('   |   |')
 
-
-
 def winner(board, player):
-    #TODO
-    #this function returns true if a player has three in a row, horizontally, vertically or diagonally
-    #else, return false
-    #hint, use boolean operators (“==”, “and”, “or”)
-    if(board[1] == player and board[2] == player and board[3] == player ):
-      return True
-    elif(board[4] == player and board[5] == player and board[6] == player):
-      return True
-    elif(board[7] == player and board[8] == player and board[9] == player):
-      return True
-    elif(board[1] == player and board[4] == player and board[7] == player):
-      return True
-    elif(board[3] == player and board[6] == player and board[9] == player):
-      return True
-    elif(board[2] == player and board[5] == player and board[8] == player):
-      return True
-    elif(board[1] == player and board[5] == player and board[9] == player):
-      return True
-    elif(board[3] == player and board[5] == player and board[7] == player):
-      return True
-    else:
-      return False
+    # board variable is the list of the gameboard
+    # player is the player's symbol ("O" or "X")
+    # TO DO:
+    # return true if a player has three in a row, 
+    # horizontally, vertically or diagonally
+    # else, return false
+    # hint, use boolean operators (“==”) and logical operators (“and”, “or”)
 
-
-play = True #starts the game loop
+play = True # starts the game loop
 
 
 while play:
-    #resets the board
+    # Reset the board and start game
     theBoard = [' '] * 10
     valid_moves = ['1','2','3','4','5','6','7','8','9']
     labels = ['0','1','2','3','4','5','6','7','8','9']
-    player1 = []
-    player2 = []
     print("Welcome to Tic Tac Toe! Player 1 goes first.")
-    #initialize necessary variables
     drawBoard(labels)
+
+    # Initialize necessary variables
     player = 1
     game = True
 
     while game:
-        #TODO:take in user input
+        # Take in user input
         player_input = input("Input your move: ")
-        #check if the move is valid
+        # Check if the move is valid
         if player_input in valid_moves:
-             #TODO: Mark the board with the necessary mark (“X” or “O”)
-
-             if player == 1:
-                  #TODO
-                  #add the move onto the board
-                  #remove player_input from list of valid_moves
-                  #check if player has won
-                  valid_moves.remove(player_input)
-                  theBoard[int(player_input)]='O'
-                  player = 2
+             #Mark the board with the necessary mark (“X” or “O”)
+             if player == 1: # For player 1: O
+                  # TO DO:
+                  # add the move onto the board
+                  # remove player_input from list of valid_moves
+                  # change the player number
+                  # check if player has won
                   if winner(theBoard, "O"):
-                        #TODO: What happens when a player wins?
-                        print('Player1 wins!')
-                        drawBoard(theBoard)
-                        break
+                        # TO DO: What happens when a player wins? 
+                        # Remember to draw the board!
+                        break # leaves current loop
                   else:
-                      print('Player2\'s turn!')
-             else:
-                 #TODO: repeat similar steps from player 1 for player 2
-                 valid_moves.remove(player_input)
-                 theBoard[int(player_input)]="X"
-                 player = 1
+                      print('Player 2\'s turn!')
+             else: # For player 2: X
+                 # TO DO: repeat similar steps from player 1 for player 2
+                 # Add move, remove from list of valid_moves, check for winner etc.
                  if winner(theBoard, "X"):
-                       #TODO: What happens when a player wins?
-                       print('Player2 wins!')
-                       drawBoard(theBoard)
+                       # TO DO: What happens when a player wins?
+                       # Very similar to player 1
                        break
                  else:
-                     print('Player1\'s turn !')
+                     print('Player 1\'s turn !')
 
-             #print the board to the console
+             # Print the board to the console
              drawBoard(theBoard)
         else:
             print("Invalid input. Try again")
 
-        #TODO: Should end game if someone won or there are not more valid moves
-        #after game over, ask if players want to play again
-        if(len(valid_moves)==0):
-            print("Draw!")
-            game = False
+        # End game if someone won or there are not more valid moves (draw)
+        # After game over, ask if players want to play again
+        if(len(valid_moves)==0): #checks if there's a draw, no more moves left
+            # TO DO: print "Draw" message and end game
 
     if (input("play again? y/n") == "n"):
         play = False

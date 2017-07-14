@@ -8,7 +8,7 @@ The course is around 3 hours long and assumes no prior knowledge of programming.
 
 Python is a language that is slowly emerging as a leader in the programming world, thanks to its versatility and human readable nature. It is used in the coding of many leading platforms such as Instagram and YouTube. Hence, it is crucial that students begin their learning journey early to make the most of the coding world and always stay ahead.
 
-Projects (in the order of difficulty):
+Projects:
 
 * [Project 1](home.py)
 * [Project 2](tic-tac-toc.py)

@@ -29,3 +29,14 @@ while(num < 8):
     print(num)
     num1 = num2
     num2 = num + num1
+
+
+#Write a function to compute area of a square (functions for triangle and circle)
+def area_triangle(height, base):
+    area = height * base * 0.5
+    return area
+
+def area_circle(radius):
+    area = radius * radius * 3.1415
+    return area
+
